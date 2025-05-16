@@ -48,6 +48,9 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
+    select[multiple] {
+      height: 7rem;
+    }
     button {
       background-color: #c2185b;
       color: white;
@@ -67,6 +70,12 @@
       border-radius: 4px;
       margin-top: 1rem;
       display: none;
+    }
+    .info-text {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: -0.8rem;
+      margin-bottom: 1rem;
     }
   </style>
 </head>
@@ -94,12 +103,15 @@
       <input type="text" id="name" placeholder="Full Name" required />
       <input type="email" id="email" placeholder="Email Address" required />
       <input type="tel" id="phone" placeholder="Phone Number" required />
-      <select id="role" required>
-        <option value="">Select Role</option>
+      
+      <label for="role">Select Role(s):</label>
+      <select id="role" multiple required>
         <option value="Security Guard">Security Guard</option>
         <option value="Cleaner">Cleaner</option>
         <option value="Store Representative">Store Representative</option>
       </select>
+      <div class="info-text">(Hold Ctrl or Cmd to select multiple roles)</div>
+      
       <button type="submit">Submit Application</button>
     </form>
     <div class="success" id="successMsg">
@@ -110,7 +122,20 @@
   <script>
     document.getElementById('applyForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      // Normally you'd POST this data to a backend or Google Form
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const selectedRoles = Array.from(document.getElementById('role').selectedOptions)
+        .map(option => option.value)
+        .join(', ');
+
+      // Log the submitted data (can be sent to backend here)
+      console.log("Name:", name);
+      console.log("Email:", email);
+      console.log("Phone:", phone);
+      console.log("Selected Roles:", selectedRoles);
+
       document.getElementById('successMsg').style.display = 'block';
       this.reset();
     });
