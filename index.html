@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vishal Mega Mart Careers</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #c2185b;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #c2185b;
+    }
+    .job-list {
+      margin: 1rem 0;
+    }
+    .job-list li {
+      margin: 0.5rem 0;
+    }
+    form {
+      margin-top: 2rem;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.7rem;
+      margin: 0.5rem 0 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #c2185b;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #a3154c;
+    }
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-top: 1rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Vishal Mega Mart – 2025 Bumper Bharti</h1>
+    <p>Walk-in to your future (and into the A.C.)</p>
+  </header>
+
+  <div class="container">
+    <h2>Available Roles</h2>
+    <ul class="job-list">
+      <li>🛡️ Security Guard – 8-hour shift, uniform provided</li>
+      <li>🧼 Cleaner – Maintain hygiene, earn dignity</li>
+      <li>🛒 Store Representative – Scan, smile, repeat</li>
+    </ul>
+
+    <h2>Details</h2>
+    <p>💰 Salary: ₹8,400/month (Internship) | ₹1.5 LPA (Post-PPO)</p>
+    <p>❄️ Work in full A.C. environment</p>
+
+    <h2>Apply Now</h2>
+    <form id="applyForm">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email Address" required />
+      <input type="tel" id="phone" placeholder="Phone Number" required />
+      <select id="role" required>
+        <option value="">Select Role</option>
+        <option value="Security Guard">Security Guard</option>
+        <option value="Cleaner">Cleaner</option>
+        <option value="Store Representative">Store Representative</option>
+      </select>
+      <button type="submit">Submit Application</button>
+    </form>
+    <div class="success" id="successMsg">
+      ✅ Application submitted! Our team will contact you soon.
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('applyForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Normally you'd POST this data to a backend or Google Form
+      document.getElementById('successMsg').style.display = 'block';
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
